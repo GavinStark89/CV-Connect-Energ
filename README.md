@@ -1,4 +1,4 @@
-# VECTOR-Velocity-based-Energetics-informed-Connectivity-for-Tracking-Organisms-to-Refugia
+# The Hidden Costs of Climate Change Tracking: How Climate Velocity and Movement Energetics Shape Connectivity Across European Protected Areas
 Project summary (VECTOR)
 
 Idea. Protected areas (PAs) are increasingly “static” in a moving climate: many sites will lose the climatic conditions they were designated to protect, so long-term conservation depends on whether species can realistically move from climate-exposed PAs to climatically stable refugia.
