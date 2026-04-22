@@ -1,0 +1,1 @@
+module load GCC/12.2.0 OpenMPI/4.1.4 GDAL/3.6.2 GEOS/3.11.1 R/4.2.2

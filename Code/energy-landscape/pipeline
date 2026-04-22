@@ -1,0 +1,109 @@
+#!/bin/bash
+
+for arg in "$@"
+do
+  case "$arg" in
+    --clean)
+      clean=yes
+      shift
+      ;;
+    -m=*|--mass=*)
+      MASS="${arg#*=}"
+      shift
+      ;;
+    -dd=*|--datadir=*)
+      DATADIR="${arg#*=}"
+      shift
+      ;;
+    -d=*|--direction=*)
+      DIRECTION="${arg#*=}"
+      shift
+      ;;
+    *)
+      break
+      ;;
+    esac
+done
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+echo "=========== ${bold}Climate Velocity Energy${normal} ==========="
+echo ""
+
+if [[ -z "$MASS" ]]
+then
+  echo "Body mass is missing, exiting..."
+  echo "You can specify body mass using --mass= or -m="
+  exit 1
+fi
+if [[ -z "$DATADIR" ]]
+then
+  echo "Data directory is missing; I assume is /data/climate-velocity-energy' in the EVE HPC."
+  DATADIR="/data/climate-velocity-energy"
+  echo "Otherwise, you can specify the data directory using --datadir= or -dd="
+  echo ""
+fi
+if [[ -z "$DIRECTION" ]]
+then
+  echo "Direction is missing, exiting..."
+  echo "You can specify the data directory using --direction= or -d="
+  exit 1
+fi
+if [[ $DIRECTION != "left" ]] && [[ $DIRECTION != "down" ]] && [[ $DIRECTION != "right" ]] && [[ $DIRECTION != "up" ]]
+then
+  echo "Direction must be one of: 'left', 'down', 'right', 'up'."
+  echo "exiting..."
+  exit 1
+fi
+  
+echo "Input parameters:"
+echo " - Body mass: ${MASS} kg"
+echo " - Data directory: ${DATADIR}"
+echo " - Direction: ${DIRECTION}"
+echo ""
+
+
+echo "Pipeline:"
+
+# -------------------------------------------------------
+# Enerscape
+# -------------------------------------------------------
+if [[ $clean == yes ]] || [[ ! -f "$DATADIR/enerscape/$MASS-$DIRECTION.tif" ]]
+then
+  echo " - Enerscape"
+  enerscape=$(sbatch --parsable $dep_enerscape /home/berti/climate-energy/slurm/enerscape.sh "$DATADIR" "$MASS" "$DIRECTION")
+else
+  echo " - Enerscape already done"
+fi
+
+echo ""
+echo "==============================================="
+
+# -------------------------------------------------------
+# Enerscape
+# -------------------------------------------------------
+if [[ $clean == yes ]] || [[ ! -f "$DATADIR/enerscape/$MASS-$DIRECTION.tif" ]]
+then
+  echo " - Enerscape"
+  dep_enerscape
+  enerscape=$(sbatch --parsable /home/berti/climate-energy/slurm/enerscape.sh "$DATADIR" "$MASS" "$DIRECTION")
+else
+  echo " - Enerscape already done"
+fi
+
+# -------------------------------------------------------
+# Maximum Enerscape
+# -------------------------------------------------------
+if [[ -f "$DATADIR/enerscape/$MASS-up.tif" ]] && [[ -f "$DATADIR/enerscape/$MASS-down.tif" ]] && [[ -f "$DATADIR/enerscape/$MASS-left.tif" ]] && [[ -f "$DATADIR/enerscape/$MASS-right.tif" ]]
+then
+  echo " - Maximum Enerscape"
+  enerscape=$(sbatch --parsable /home/berti/climate-energy/slurm/maximum-enerscape.sh "$DATADIR" "$MASS")
+else
+  echo " - Missing some direction files."
+fi
+
+echo ""
+echo "==============================================="
+
+
+
