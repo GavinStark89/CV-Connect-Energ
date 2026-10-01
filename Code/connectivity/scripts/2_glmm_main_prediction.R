@@ -1,5 +1,5 @@
 ################################
-# Species distribution models and diagnostics for large herbivores and carnivores of Europe
+# Species distribution modelling and diagnostics for large herbivores and carnivores of Europe
 # Author: Jeremy Dertien
 # Last updated: 2026-08-01
 #################################
@@ -63,7 +63,7 @@ clusterEvalQ(cl, {
   options(na.action = "na.fail")
 })
 
-#5-fold CV for every species
+# 5-fold CV for every species
 cv_list = parLapply(cl, seq_len(nrow(jobs)), function(j) {
   sp = jobs$species[j]; i = jobs$fold[j]
   df = eu_mammals_covs_values[[sp]]

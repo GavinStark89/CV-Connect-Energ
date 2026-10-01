@@ -1,0 +1,21 @@
+[general]
+[data]
+datatype=FLT4S
+nodatavalue=nan
+byteorder=little
+nbands=12
+bandorder=BIL
+minvalue=-inf:-3.33476726072890767e+38:-inf:-inf:-3.33476726072890767e+38:-3.39277170700981487e+38:-3.3881335255816518e+38:-3.39199631049066726e+38:-3.37967515230464095e+38:-3.39961438353779883e+38:-3.38585662227954587e+38:0
+maxvalue=3.39857004226730681e+38:inf:inf:3.37730251602920577e+38:3.26671064942433468e+38:3.39940263518153671e+38:3.40225089396217751e+38:3.38732750262400269e+38:3.37997452067039085e+38:3.39435637167214817e+38:3.33812379669421599e+38:12
+categorical=FALSE
+[description]
+layername=forest10k:dvlp10k:ag10k:shrub10k:wland10k:RdDensity10k:FullTRI10k:Elev10k:TempMax10k:Precip10k:Snow10k:BioGeo10k
+[georeference]
+nrows=411
+ncols=405
+xmin=2530708.6665459713
+ymin=1381029.87059763446
+xmax=6580708.6665459713
+ymax=5491029.87059763446
+projection=+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs
+wkt=PROJCRS["ETRS89-extended / LAEA Europe",BASEGEOGCRS["ETRS89",ENSEMBLE["European Terrestrial Reference System 1989 ensemble",MEMBER["European Terrestrial Reference Frame 1989"],MEMBER["European Terrestrial Reference Frame 1990"],MEMBER["European Terrestrial Reference Frame 1991"],MEMBER["European Terrestrial Reference Frame 1992"],MEMBER["European Terrestrial Reference Frame 1993"],MEMBER["European Terrestrial Reference Frame 1994"],MEMBER["European Terrestrial Reference Frame 1996"],MEMBER["European Terrestrial Reference Frame 1997"],MEMBER["European Terrestrial Reference Frame 2000"],MEMBER["European Terrestrial Reference Frame 2005"],MEMBER["European Terrestrial Reference Frame 2014"],MEMBER["European Terrestrial Reference Frame 2020"],ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[0.1]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4258]],CONVERSION["Europe Equal Area 2001",METHOD["Lambert Azimuthal Equal Area",ID["EPSG",9820]],PARAMETER["Latitude of natural origin",52,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",10,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",4321000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",3210000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["northing (Y)",north,ORDER[1],LENGTHUNIT["metre",1]],AXIS["easting (X)",east,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Statistical analysis."],AREA["Europe - European Union (EU) countries and candidates. Europe - onshore and offshore: Albania; Andorra; Austria; Belgium; Bosnia and Herzegovina; Bulgaria; Croatia; Cyprus; Czechia; Denmark; Estonia; Faroe Islands; Finland; France; Germany; Gibraltar; Greece; Hungary; Iceland; Ireland; Italy; Kosovo; Latvia; Liechtenstein; Lithuania; Luxembourg; Malta; Monaco; Montenegro; Netherlands; North Macedonia; Norway including Svalbard and Jan Mayen; Poland; Portugal including Madeira and Azores; Romania; San Marino; Serbia; Slovakia; Slovenia; Spain including Canary Islands; Sweden; Switzerland; Türkiye (Turkey); United Kingdom (UK) including Channel Islands and Isle of Man; Vatican City State."],BBOX[24.6,-35.58,84.73,44.83]],ID["EPSG",3035]]

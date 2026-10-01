@@ -11,9 +11,9 @@ library(sf)
 library(stringr)
 library(tidyr)
 
-studyarea = st_read("./Data/Connectivity_Data/raw_data/your_study_area.shp")
-spgrid = st_read("./raw_data/occurrences_data/sp_occurrence.shp") #species data as grid squares
-mammals_covariants <- rast("./raw_data/RastStack_10k_2.grd")
+studyarea = st_read("./Data/Connectivity_Data/raw_data/NC_Countries_reproj.shp")
+spgrid = st_read("./Data/Connectivity_Data/raw_data/sp_occurrence.shp") #species data as grid squares
+mammals_covariants <- rast("./Data/Connectivity_Data/raw_data/RastStack_10k_2.grd")
 
 # -----------------
 # Utility Functions
